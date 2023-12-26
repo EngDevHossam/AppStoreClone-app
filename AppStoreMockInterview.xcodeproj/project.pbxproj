@@ -8,17 +8,21 @@
 
 /* Begin PBXBuildFile section */
 		C731DF092B395971000BA841 /* AppStoreMockInterviewApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C731DF082B395971000BA841 /* AppStoreMockInterviewApp.swift */; };
-		C731DF0B2B395971000BA841 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C731DF0A2B395971000BA841 /* ContentView.swift */; };
+		C731DF0B2B395971000BA841 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C731DF0A2B395971000BA841 /* SearchView.swift */; };
 		C731DF0D2B395973000BA841 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C731DF0C2B395973000BA841 /* Assets.xcassets */; };
 		C731DF102B395973000BA841 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C731DF0F2B395973000BA841 /* Preview Assets.xcassets */; };
+		C731DF182B3A3262000BA841 /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = C731DF172B3A3262000BA841 /* SearchResult.swift */; };
+		C731DF1A2B3A6EAE000BA841 /* AppDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C731DF192B3A6EAE000BA841 /* AppDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		C731DF052B395971000BA841 /* AppStoreMockInterview.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppStoreMockInterview.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C731DF082B395971000BA841 /* AppStoreMockInterviewApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStoreMockInterviewApp.swift; sourceTree = "<group>"; };
-		C731DF0A2B395971000BA841 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		C731DF0A2B395971000BA841 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		C731DF0C2B395973000BA841 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C731DF0F2B395973000BA841 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		C731DF172B3A3262000BA841 /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
+		C731DF192B3A6EAE000BA841 /* AppDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,10 +55,12 @@
 		C731DF072B395971000BA841 /* AppStoreMockInterview */ = {
 			isa = PBXGroup;
 			children = (
+				C731DF162B3A3250000BA841 /* Model */,
 				C731DF082B395971000BA841 /* AppStoreMockInterviewApp.swift */,
-				C731DF0A2B395971000BA841 /* ContentView.swift */,
+				C731DF0A2B395971000BA841 /* SearchView.swift */,
 				C731DF0C2B395973000BA841 /* Assets.xcassets */,
 				C731DF0E2B395973000BA841 /* Preview Content */,
+				C731DF192B3A6EAE000BA841 /* AppDetailView.swift */,
 			);
 			path = AppStoreMockInterview;
 			sourceTree = "<group>";
@@ -65,6 +71,14 @@
 				C731DF0F2B395973000BA841 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		C731DF162B3A3250000BA841 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C731DF172B3A3262000BA841 /* SearchResult.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,7 +151,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C731DF0B2B395971000BA841 /* ContentView.swift in Sources */,
+				C731DF0B2B395971000BA841 /* SearchView.swift in Sources */,
+				C731DF1A2B3A6EAE000BA841 /* AppDetailView.swift in Sources */,
+				C731DF182B3A3262000BA841 /* SearchResult.swift in Sources */,
 				C731DF092B395971000BA841 /* AppStoreMockInterviewApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
