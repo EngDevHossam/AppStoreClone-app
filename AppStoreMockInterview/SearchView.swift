@@ -6,8 +6,6 @@
 //
 
 import SwiftUI
-
-
 import Combine
 
 extension Int {
@@ -47,19 +45,14 @@ class SearchViewModel: ObservableObject {
     }
     
     private func fetchJSONData(searchValue: String) {
-        // contact server for JSON data
         Task {
             do {
-                guard let url = URL(string: "https://itunes.apple.com/search?term=\(searchValue)&entity=software") else { return }
-                isSearching = true
-                self.results = []
-                let (data, _) = try await URLSession.shared.data(from: url)
-                let searchResult = try JSONDecoder().decode(SearchResult.self, from: data)
-                self.results = searchResult.results
-                isSearching = false
+                self.isSearching = true
+                self.results = try await APIService.fetchSearchResults(searchValue: searchValue)
+                self.isSearching = false
             } catch {
+                self.isSearching = false
                 print("Failed due to error:", error)
-                isSearching = false
             }
         }
         
@@ -75,13 +68,6 @@ struct SearchView: View {
         NavigationStack {
             GeometryReader { proxy in
                 ZStack {
-                
-                    if vm.isSearching {
-                        ProgressView()
-                            .progressViewStyle(.circular)
-                            .controlSize(.large)
-                            .frame(maxWidth: .infinity, maxHeight: .infinity)
-                    }
                     if vm.results.isEmpty && vm.query.isEmpty {
                         VStack(spacing: 16) {
                             Image(systemName: "magnifyingglass.circle.fill")
@@ -192,5 +178,5 @@ struct ScreenshotsRow: View {
 
 #Preview {
     SearchView()
-        .preferredColorScheme(.dark)
+//        .preferredColorScheme(.dark)
 }
