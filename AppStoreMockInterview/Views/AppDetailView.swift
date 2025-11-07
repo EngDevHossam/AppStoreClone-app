@@ -21,11 +21,11 @@ struct AppDetail: Codable {
     let artworkUrl512: String
 }
 
-@MainActor
-class AppDetailViewModel: ObservableObject {
+@Observable
+class AppDetailViewModel {
     
-    @Published var appDetail: AppDetail?
-    @Published var error: Error?
+    var appDetail: AppDetail?
+    var error: Error?
     
     private let trackId: Int
     init(trackId: Int) {
@@ -47,7 +47,7 @@ class AppDetailViewModel: ObservableObject {
 
 struct AppDetailView: View {
     
-    @StateObject var vm: AppDetailViewModel
+    @State var vm: AppDetailViewModel
     
     init(trackId: Int) {
         self._vm = .init(wrappedValue: AppDetailViewModel(trackId: trackId))

@@ -7,11 +7,11 @@
 
 import SwiftUI
 
-@MainActor
-class ReviewsViewModel: ObservableObject {
+@Observable
+class ReviewsViewModel {
     
-    @Published var entries: [Review] = [Review]()
-    @Published var error: Error?
+    var entries: [Review] = [Review]()
+    var error: Error?
     
     private let trackId: Int
     
@@ -36,7 +36,7 @@ class ReviewsViewModel: ObservableObject {
 
 struct ReviewsView: View {
     
-    @StateObject var vm: ReviewsViewModel
+    @State var vm: ReviewsViewModel
     
     private let proxy: GeometryProxy
     
@@ -78,7 +78,7 @@ struct ReviewsView: View {
                         Spacer()
                     }
                     .padding(20)
-                    .frame(width: proxy.size.width - 64, height: 230)
+                    .frame(width: max(0, proxy.size.width - 64), height: 230)
                     .background(Color(.init(white: 1, alpha: 0.1)))
                     .clipShape(RoundedRectangle(cornerRadius: 10))
                 }

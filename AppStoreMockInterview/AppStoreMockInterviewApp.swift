@@ -11,7 +11,7 @@ import SwiftUI
 struct AppStoreMockInterviewApp: App {
     var body: some Scene {
         WindowGroup {
-            SampleView()
+            SearchView()
         }
     }
 }

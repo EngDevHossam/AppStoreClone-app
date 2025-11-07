@@ -26,17 +26,26 @@ extension Int {
 }
 
 // iOS 17 has #Observble macro
-@MainActor
-class SearchViewModel: ObservableObject {
+@Observable
+class SearchViewModel {
     
-    @Published var results: [Result] = [Result]()
-    @Published var query = "Snapchat"
-    @Published var isSearching = false
+    var results: [Result] = [Result]()
+    var isSearching = false
+    
+    var query = "Snapchat" {
+        didSet {
+            if oldValue != query {
+                queryPublisher.send(query)
+            }
+        }
+    }
+    
+    private var queryPublisher = PassthroughSubject<String, Never>()
     
     private var cancellables = Set<AnyCancellable>()
     
     init() {
-        $query
+        queryPublisher
             .debounce(for: 0.3, scheduler: DispatchQueue.main)
             .sink { [weak self] newValue in
                 guard let self else { return }
@@ -62,7 +71,7 @@ class SearchViewModel: ObservableObject {
 struct SearchView: View {
     
     // ObservedObject <- more for dependency injection
-    @StateObject var vm = SearchViewModel()
+    @State var vm = SearchViewModel()
     
     var body: some View {
         NavigationStack {
